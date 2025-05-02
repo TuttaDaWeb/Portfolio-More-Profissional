@@ -1,0 +1,100 @@
+.wrapper{
+    padding: 0;
+    width: 100%;
+}
+.navbar h1{
+    color: white;
+    font-weight: 700;
+}
+.navbar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+.nav a{
+    padding: 0.4rem;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    margin-left: 5rem;
+}
+.nav a::after{
+    content: '';
+    position: absolute;
+    top: 1;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    display: block;
+    background-color: white;
+    transition: .5s ease-in;
+}
+.nav a:hover::after{
+    width: 100%;
+}
+.menu{
+    display: none;
+}
+@media(max-width: 786px){
+    .nav a{
+        margin-left: 2.5rem;
+    }
+}
+@media(max-width: 566px){
+    .wrapper .menu{
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1000; 
+    }
+    .wrapper .navbar_back{
+        display: none;
+    }
+    .wrapper .navbar_back.active{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 500;
+    }
+    .wrapper .navbar_back.active .nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: white;
+        width: min(450px, 85%);
+        height: min(350px, 85%);
+        border-radius: 20px;
+    }
+    .wrapper .navbar_back.active .nav a{
+        color: black;
+        margin-left: 0;
+        position: relative;
+    } 
+    .wrapper .navbar_back.active .nav a::after{
+        content: '';
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 0%;
+        height: 5px;
+        background-color: black;
+        border-radius: 5px;
+    }
+    .wrapper .navbar_back.active .nav a:hover::after{
+        width: 100%;
+    }
+}
